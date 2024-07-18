@@ -10,10 +10,10 @@ describe("Message class", function() {
     });
 
     it("constructor sets command type", function() {
-        expect( new Message('EXAMPLE_NAME').name).toEqual('EXAMPLE_NAME');
+        expect( new Message('EXAMPLE_NAME').name).toBe('EXAMPLE_NAME');
     });
 
     it("contains a commands array passed into the constructor as the 2nd argument", function() {
-        expect( Array.isArray(new Message('name', ['EXAMPLE_COMMAND']).commands)).toEqual(true);
+        expect( Array.isArray(new Message('name', ['EXAMPLE_COMMAND']).commands)).toBe(true);
     });
 });
