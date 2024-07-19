@@ -42,7 +42,6 @@ describe("Rover class", function() {
     expect(response.results[0].roverStatus.mode).toBe('NORMAL');
     expect(response.results[0].roverStatus.generatorWatts).toBe(110);
     expect(response.results[0].roverStatus.position).toBe(98382);
-
   });
 
   //test 11
@@ -57,7 +56,6 @@ describe("Rover class", function() {
     message = new Message('Test message with status check', commands);
     response = rover.receiveMessage(message);
     expect(response.results[0].roverStatus.mode).toBe('LOW_POWER');
-
   });
 
   //test 12
@@ -66,12 +64,11 @@ describe("Rover class", function() {
     let message = new Message('Test message with mode change to low power', commands);
     let rover = new Rover(98382);
     rover.receiveMessage(message);
-    
+
     commands = [new Command('MOVE', 1234)];
     message = new Message('Test message with move during low power', commands);
     let response = rover.receiveMessage(message);
     expect(response.results[0].completed).toBe(false);
-
   });
 
   //test 13
@@ -85,7 +82,6 @@ describe("Rover class", function() {
     message = new Message('Test message with status check', commands);
     response = rover.receiveMessage(message);
     expect(response.results[0].roverStatus.position).toBe(1234);
-
   });
 
 });
