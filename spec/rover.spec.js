@@ -52,6 +52,7 @@ describe("Rover class", function() {
     let rover = new Rover(98382);
     let response = rover.receiveMessage(message);
     expect(response.results[0].completed).toBe(true);
+
     commands = [new Command('STATUS_CHECK')];
     message = new Message('Test message with status check', commands);
     response = rover.receiveMessage(message);
@@ -65,6 +66,7 @@ describe("Rover class", function() {
     let message = new Message('Test message with mode change to low power', commands);
     let rover = new Rover(98382);
     rover.receiveMessage(message);
+    
     commands = [new Command('MOVE', 1234)];
     message = new Message('Test message with move during low power', commands);
     let response = rover.receiveMessage(message);
